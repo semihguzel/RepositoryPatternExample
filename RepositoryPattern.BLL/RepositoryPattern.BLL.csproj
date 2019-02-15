@@ -41,7 +41,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CategoryControls\CategoryListControl.cs" />
+    <Compile Include="CategoryControls\CreateCategoryControl.cs" />
+    <Compile Include="ProductControls\CreateProductControl.cs" />
+    <Compile Include="ProductControls\ProductListControl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tools.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RepositoryPattern.DAL\RepositoryPattern.DAL.csproj">
+      <Project>{ca23ecb4-b9d7-4fb1-ba17-d26a0d4629d1}</Project>
+      <Name>RepositoryPattern.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RepositoryPattern.DATA\RepositoryPattern.DATA.csproj">
+      <Project>{d08d3ee2-febe-4ffa-9893-67bf6253949c}</Project>
+      <Name>RepositoryPattern.DATA</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

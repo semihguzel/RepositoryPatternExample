@@ -11,7 +11,7 @@ namespace RepositoryPattern.DAL.Repository.Concrete
     public class EFRepository<T> : IRepository<T> where T : class
     {
         private readonly DbContext _dbContext;
-        public readonly DbSet<T> _dbSet;
+        private readonly DbSet<T> _dbSet;
 
         public EFRepository(DbContext dbContext)
         {
@@ -37,7 +37,7 @@ namespace RepositoryPattern.DAL.Repository.Concrete
             return _dbSet;
         }
 
-        public List<T> GetAll()
+        public ICollection<T> GetAll()
         {
             return _dbSet.ToList();
         }

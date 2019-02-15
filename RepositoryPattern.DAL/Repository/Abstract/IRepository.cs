@@ -10,7 +10,7 @@ namespace RepositoryPattern.DAL.Repository.Abstract
     {
         //Generic olarak kullanılacak olan metodlar, soyut bir biçimde ve generic yapıda tanımlanır.
         IQueryable<T> GetEntity();
-        List<T> GetAll();
+        ICollection<T> GetAll();
         T GetById(int id);
         void Insert(T entity);
         void Update(T entity);
