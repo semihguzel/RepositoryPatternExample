@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RepositoryPattern.DAL.Repository.Abstract
+namespace RepositoryPattern.BLL.Repository.Abstract
 {
     public interface IRepository<T> where T : class
     {

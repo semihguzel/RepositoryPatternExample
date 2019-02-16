@@ -1,4 +1,4 @@
-﻿using RepositoryPattern.DAL.Repository.Concrete;
+﻿using RepositoryPattern.BLL.Repository.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ namespace RepositoryPattern.BLL.CategoryControls
 {
     public class CategoryListControl
     {
-        public bool DoesCategoryExits()
+        public bool DoesCategoriesExits()
         {
             CategoryConcrete productConcrete = new CategoryConcrete();
             var result = productConcrete._categoryRepository.GetAll();

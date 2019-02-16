@@ -1,4 +1,4 @@
-﻿using RepositoryPattern.DAL.Repository.Abstract;
+﻿using RepositoryPattern.BLL.Repository.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RepositoryPattern.DAL.Repository.Concrete
+namespace RepositoryPattern.BLL.Repository.Concrete
 {
     public class EFUnitOfWork : IUnitOfWork
     {

@@ -1,4 +1,4 @@
-﻿using RepositoryPattern.DAL.Repository.Concrete;
+﻿using RepositoryPattern.BLL.Repository.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -11,7 +11,7 @@
     <form id="form1" runat="server">
         <div class="container">
             <div class="row" style="margin-top:50px;">
-                <asp:GridView ID="grdProducts" CssClass="table table-hover" AutoGenerateColumns="false" runat="server">
+                <asp:GridView ID="grdProducts" CssClass="table table-hover" OnRowCommand="grdProducts_RowCommand" AutoGenerateColumns="false" runat="server">
                     <Columns>
                         <asp:TemplateField HeaderText="Ürün Adı">
                             <ItemTemplate>
@@ -36,11 +36,18 @@
                                 <asp:Label runat="server" Text='<%#Eval("CategoryName") %>'/>
                             </ItemTemplate>
                         </asp:TemplateField>
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                
+                                <asp:Button runat="server" ID="btnUrunSil" CssClass="btn btn-danger" Text="Ürün Sil" CommandName="sil" />
+                                <asp:Button runat="server" ID="btnKategoriGuncelle" CssClass="btn btn-warning" Text="Ürün Güncelle" CommandName="guncelle" />
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        
                     </Columns>
                     <SelectedRowStyle BackColor="Crimson" />
-
                 </asp:GridView>
-
+                <asp:Button runat="server" ID="btnUrunEkle" CssClass="btn btn-success form-control" Text="Ürün Ekle" OnClick="btnUrunEkle_Click" />
                 <asp:Button runat="server" ID="btnKategoriler" Text="Kategorilere Dön" CssClass="btn btn-info form-control" OnClick="btnKategoriler_Click"/>
 
             </div>

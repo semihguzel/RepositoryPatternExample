@@ -1,4 +1,5 @@
-﻿using RepositoryPattern.DAL.Repository.Abstract;
+﻿using RepositoryPattern.BLL.Repository.Abstract;
+using RepositoryPattern.DAL;
 using RepositoryPattern.DATA;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RepositoryPattern.DAL.Repository.Concrete
+namespace RepositoryPattern.BLL.Repository.Concrete
 {
     public class CategoryConcrete : ICategory
     {

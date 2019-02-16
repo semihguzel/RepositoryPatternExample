@@ -1,5 +1,5 @@
 ﻿using RepositoryPattern.BLL.CategoryControls;
-using RepositoryPattern.DAL.Repository.Concrete;
+using RepositoryPattern.BLL.Repository.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +16,7 @@ namespace RepositoryPattern.UI
             if (IsPostBack) return;
 
             CategoryListControl categoryListControl = new CategoryListControl();
-            if (!categoryListControl.DoesCategoryExits())
+            if (!categoryListControl.DoesCategoriesExits())
             {
                 Response.Write("<script>alert('Kayitli urun bulunmamaktadir!')</script>");
                 return;
@@ -36,7 +36,7 @@ namespace RepositoryPattern.UI
             switch (e.CommandName)
             {
                 case "ekle":
-                    Response.Redirect("CreateProduct.aspx?CategoryId=" + e.CommandArgument);
+                    Response.Redirect("CreateCategory.aspx?CategoryId=" + e.CommandArgument);
                     break;
 
                 case "git":

@@ -27,8 +27,8 @@
                         <asp:TemplateField>
                             <ItemTemplate>
                                 <asp:Button runat="server" ID="btnKategoriEkle" CssClass="btn btn-primary" Text="Kategori Ekle" CommandName="ekle" />
-                                <asp:Button runat="server" ID="btnKategoriSil" CssClass="btn btn-danger" Text="Kategori Ekle" CommandName="sil" />
-                                <asp:Button runat="server" ID="btnKategoriDuzenle" CssClass="btn btn-warning" Text="Kategori Ekle" CommandName="guncelle" />
+                                <asp:Button runat="server" ID="btnKategoriSil" CssClass="btn btn-danger" Text="Kategori Sil" CommandName="sil" />
+                                <asp:Button runat="server" ID="btnKategoriDuzenle" CssClass="btn btn-warning" Text="Kategori Güncelle" CommandName="guncelle" />
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>

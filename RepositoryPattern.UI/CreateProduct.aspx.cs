@@ -1,7 +1,7 @@
 ﻿using RepositoryPattern.BLL;
 using RepositoryPattern.BLL.CategoryControls;
 using RepositoryPattern.BLL.ProductControls;
-using RepositoryPattern.DAL.Repository.Concrete;
+using RepositoryPattern.BLL.Repository.Concrete;
 using RepositoryPattern.DATA;
 using System;
 using System.Collections.Generic;
@@ -17,13 +17,15 @@ namespace RepositoryPattern.UI
         protected void Page_Load(object sender, EventArgs e)
         {
             if (IsPostBack) return;
+            
+        }
+
+        protected void btnEkle_Click(object sender, EventArgs e)
+        {
             CreateProductControl createProductControl = new CreateProductControl();
-            if (Tools.ValidationControl(txtProductName.Text, txtCategoryName.Text, Convert.ToInt32(txtUnitsInStock.Text), Convert.ToInt32(txtUnitPrice.Text)))
-            {
-                Response.Write("<script>alert('Lutfen kutucuklari doldurunuz!')</script>");
-                return;
-            }
-            if (!createProductControl.DoesProductExists(txtProductName.Text))
+            CreateCategoryControl createCategoryControl = new CreateCategoryControl();
+
+            if (createProductControl.DoesProductExists(txtProductName.Text))
             {
                 Response.Write("<script>alert('Bu isimde bir urun var! Farkli bir urun ismi giriniz.')</script>");
                 return;
@@ -33,9 +35,15 @@ namespace RepositoryPattern.UI
                 CategoryConcrete categoryConcrete = new CategoryConcrete();
                 ProductConcrete productConcrete = new ProductConcrete();
 
+                if(!createCategoryControl.DoesCategoryExists(txtCategoryName.Text))
+                {
+                    Response.Write("<script>alert('Bu kategori bulunmamaktadır. Kategori adını doğru giriniz!')</script>");
+                    return;
+                }
+
                 int categoryId = categoryConcrete.CategoryIdByCategoryName(txtCategoryName.Text);
                 if (categoryId == 0)
-                    Response.Write("alert('Girdiginiz Kategori adi bulunmamaktadir!')");
+                    Response.Write("<script>alert('Girdiginiz Kategori adi bulunmamaktadir!')</script>");
                 else
                 {
                     Product product = new Product();
@@ -47,8 +55,15 @@ namespace RepositoryPattern.UI
                     productConcrete._productRepository.Insert(product);
                     productConcrete._productUnitOfWork.SaveChanges();
                     productConcrete._productUnitOfWork.Dispose();
+
+                    Response.Write("<script>alert('Kayıt işlemi başarıyla gerçekleştirilmiştir!')</script>");
                 }
             }
+        }
+        protected void btnKategorilereGeriDon_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("CategoryList.aspx");
+
         }
     }
 }
