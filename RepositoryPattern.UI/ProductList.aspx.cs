@@ -28,11 +28,14 @@ namespace RepositoryPattern.UI
                     int categoryId = Convert.ToInt32(Request.QueryString["CategoryId"]);
                     grdProducts.DataSource = productConcrete._productRepository.GetAll().Where(x => x.CategoryID == categoryId).Select(x => new
                     {
+                        x.ProductID,
                         x.ProductName,
                         x.UnitPrice,
                         x.UnitsInStock,
+                        x.CategoryID,
                         x.Category.CategoryName
                     }).ToList();
+                    grdProducts.DataKeyNames = new string[] { "ProductID" };
                     grdProducts.DataBind();
 
                 }
@@ -51,11 +54,12 @@ namespace RepositoryPattern.UI
             {
 
                 case "sil":
-                    productConcrete._productRepository.Delete(productConcrete._productRepository.GetById((int)e.CommandArgument));
                     Response.Write("<script>alert('Ürün Silinmiştir...')</script>");
+                    productConcrete._productRepository.Delete(productConcrete._productRepository.GetById(Convert.ToInt32(e.CommandArgument)));
+                    Response.Redirect("CategoryList.aspx");
                     break;
                 case "guncelle":
-                    Response.Redirect("UpdateProduct.aspx?CategoryId=" + e.CommandArgument);
+                    Response.Redirect("UpdateProduct.aspx?ProductId=" + e.CommandArgument);
                     break;
             }
         }

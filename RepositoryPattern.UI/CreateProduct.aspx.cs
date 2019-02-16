@@ -17,7 +17,6 @@ namespace RepositoryPattern.UI
         protected void Page_Load(object sender, EventArgs e)
         {
             if (IsPostBack) return;
-            
         }
 
         protected void btnEkle_Click(object sender, EventArgs e)
@@ -35,17 +34,15 @@ namespace RepositoryPattern.UI
                 CategoryConcrete categoryConcrete = new CategoryConcrete();
                 ProductConcrete productConcrete = new ProductConcrete();
 
-                if(!createCategoryControl.DoesCategoryExists(txtCategoryName.Text))
+                if (!createCategoryControl.DoesCategoryExists(txtCategoryName.Text))
                 {
                     Response.Write("<script>alert('Bu kategori bulunmamaktadır. Kategori adını doğru giriniz!')</script>");
                     return;
                 }
-
-                int categoryId = categoryConcrete.CategoryIdByCategoryName(txtCategoryName.Text);
-                if (categoryId == 0)
-                    Response.Write("<script>alert('Girdiginiz Kategori adi bulunmamaktadir!')</script>");
                 else
                 {
+
+                    int categoryId = categoryConcrete.CategoryIdByCategoryName(txtCategoryName.Text);
                     Product product = new Product();
                     product.CategoryID = categoryId;
                     product.ProductName = txtProductName.Text;

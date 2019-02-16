@@ -18,22 +18,24 @@
                                 <asp:Label runat="server" Text='<%#Eval("CategoryName") %>' />
                             </ItemTemplate>
                         </asp:TemplateField>
-
                         <asp:TemplateField HeaderText="Açıklama">
                             <ItemTemplate>
+                                <%-- onClientClick ile sayfanin yeni sekmede veya suanki sekmede acilma durumu ayarlanir. --%>
                                 <asp:LinkButton runat="server" OnClientClick="window.document.forms[0].target = '_top'" CommandArgument='<%#Eval("CategoryID") %>' CommandName="git" Text='<%#Eval("Description") %>' />
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField>
                             <ItemTemplate>
-                                <asp:Button runat="server" ID="btnKategoriEkle" CssClass="btn btn-primary" Text="Kategori Ekle" CommandName="ekle" />
-                                <asp:Button runat="server" ID="btnKategoriSil" CssClass="btn btn-danger" Text="Kategori Sil" CommandName="sil" />
-                                <asp:Button runat="server" ID="btnKategoriDuzenle" CssClass="btn btn-warning" Text="Kategori Güncelle" CommandName="guncelle" />
+                                <%-- CommandArgument ile gridview'in datasource'una baglanmis CategoryID kolonunun belirlenen butona basildiginda kullanilabilmesini saglar --%>
+                                <%-- Bu sayede onRowCommand eventi icerisinde CommandName'ine gore bu CategoryID bilgisi kullanilarak silme - guncelleme islemleri yapilabilir. --%>
+                                <asp:Button runat="server" ID="btnKategoriSil" CssClass="btn btn-danger" CommandArgument='<%#Eval("CategoryID") %>' Text="Kategori Sil" CommandName="sil" />
+                                <asp:Button runat="server" ID="btnKategoriDuzenle" CssClass="btn btn-warning" CommandArgument='<%#Eval("CategoryID") %>' Text="Kategori Güncelle" CommandName="guncelle" />
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
                     <SelectedRowStyle BackColor="CornflowerBlue" ForeColor="Maroon" Font-Bold="true" Font-Italic="true" />
                 </asp:GridView>
+                <asp:Button runat="server" ID="btnKategoriEkle" CssClass="btn btn-primary form-control" Text="Kategori Ekle" OnClick="btnKategoriEkle_Click" />
             </div>
         </div>
     </form>

@@ -20,6 +20,7 @@ namespace RepositoryPattern.BLL.Repository.Concrete
 
         public IRepository<T> GetRepository<T>() where T : class
         {
+            //Instance alindigi zaman hangi entity verildi ise o entity icin generic yapilar ayarlanir ve ona gore repository geri dondurulur.
             return new EFRepository<T>(_dbContext);
         }
 
@@ -37,6 +38,7 @@ namespace RepositoryPattern.BLL.Repository.Concrete
 
         public void Dispose()
         {
+            //IDisposible'dan kalitilan IUnitOfWork interface'sinden gelen Dispose metodu, islem yapildiktan sonra, olusturulan context'i ram'den siler. Genelde veritabaninda crud islemleri yapildiktan sonra kullanilir.
             Dispose(true);
             GC.SuppressFinalize(this);
         }

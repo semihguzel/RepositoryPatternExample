@@ -10,7 +10,7 @@
 namespace RepositoryPattern.UI {
     
     
-    public partial class CategoryList {
+    public partial class UpdateCategory {
         
         /// <summary>
         /// form1 control.
@@ -22,21 +22,39 @@ namespace RepositoryPattern.UI {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// grdCategories control.
+        /// txtCategoryName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdCategories;
+        protected global::System.Web.UI.WebControls.TextBox txtCategoryName;
         
         /// <summary>
-        /// btnKategoriEkle control.
+        /// txtDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnKategoriEkle;
+        protected global::System.Web.UI.WebControls.TextBox txtDescription;
+        
+        /// <summary>
+        /// btnKaydet control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnKaydet;
+        
+        /// <summary>
+        /// btnKategorilereGeriDon control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnKategorilereGeriDon;
     }
 }

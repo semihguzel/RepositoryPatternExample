@@ -33,16 +33,27 @@ namespace RepositoryPattern.UI
 
         protected void grdCategories_RowCommand(object sender, GridViewCommandEventArgs e)
         {
+            CategoryConcrete categoryConcrete = new CategoryConcrete();
+
             switch (e.CommandName)
             {
-                case "ekle":
-                    Response.Redirect("CreateCategory.aspx?CategoryId=" + e.CommandArgument);
-                    break;
-
                 case "git":
                     Response.Redirect("ProductList.aspx?CategoryId=" + e.CommandArgument);
                     break;
+                case "sil":
+                    categoryConcrete._categoryRepository.Delete(categoryConcrete._categoryRepository.GetById(Convert.ToInt32(e.CommandArgument)));
+                    Response.Write("<script>alert('Ürün Silinmiştir...')</script>");
+                    Response.Redirect("CategoryList.aspx");
+                    break;
+                case "guncelle":
+                    Response.Redirect("UpdateCategory.aspx?CategoryId=" + e.CommandArgument);
+                    break;
             }
+        }
+
+        protected void btnKategoriEkle_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("CreateCategory.aspx");
         }
     }
 }

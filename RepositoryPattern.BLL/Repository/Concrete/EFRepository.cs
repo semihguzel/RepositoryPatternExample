@@ -10,12 +10,14 @@ namespace RepositoryPattern.BLL.Repository.Concrete
 {
     public class EFRepository<T> : IRepository<T> where T : class
     {
+        //Instance alindigi zaman yollanan Context bilgisine gore (Category, Product gibi entity'ler) repository olusturulur. Her entityde kullanilan yapilar bu class icerisinde generic olarak tanimlanir, hangi class yollanirsa tanimlanan yapilar o class icin yapilmasi belirlenen isleri yapar. Bu sayede her entity icerisinde ayni kod satirlarinin yazilmasi onlenmis olur. Ote yandan test islemlerinde de bir hata bulundugunda sadece bu class icerisinde yapilacak degisiklik, bu yapilari kullanan tum kod satirlarinda da degisikligi saglar.
         private readonly DbContext _dbContext;
         private readonly DbSet<T> _dbSet;
 
         public EFRepository(DbContext dbContext)
         {
             _dbContext = dbContext;
+            //Burada DbContext genel bir sinif oldugu icin Set<>() metodunda '<>' icerisine yazilan kisim butun metodlarin hangi entity icin calisacagini belirler.
             _dbSet = _dbContext.Set<T>();
         }
 
@@ -50,16 +52,12 @@ namespace RepositoryPattern.BLL.Repository.Concrete
         public void Insert(T entity)
         {
             _dbSet.Add(entity);
-            _dbContext.SaveChanges();
         }
 
         public void Update(T entity)
         {
             _dbSet.Attach(entity);
             _dbContext.Entry(entity).State = EntityState.Modified;
-            _dbContext.SaveChanges();
         }
-
-       
     }
 }

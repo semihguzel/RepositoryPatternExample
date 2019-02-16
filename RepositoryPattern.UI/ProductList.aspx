@@ -39,8 +39,8 @@
                         <asp:TemplateField>
                             <ItemTemplate>
                                 
-                                <asp:Button runat="server" ID="btnUrunSil" CssClass="btn btn-danger" Text="Ürün Sil" CommandName="sil" />
-                                <asp:Button runat="server" ID="btnKategoriGuncelle" CssClass="btn btn-warning" Text="Ürün Güncelle" CommandName="guncelle" />
+                                <asp:Button runat="server" ID="btnUrunSil" CssClass="btn btn-danger"  CommandArgument='<%#Eval("ProductID") %>' CommandName="sil" Text="Ürün Sil" />
+                                <asp:Button runat="server" ID="btnKategoriGuncelle" CssClass="btn btn-warning" CommandArgument='<%#Eval("ProductID") %>' Text="Ürün Güncelle" CommandName="guncelle" />
                             </ItemTemplate>
                         </asp:TemplateField>
                         

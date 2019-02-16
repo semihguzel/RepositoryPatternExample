@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CreateProduct.aspx.cs" Inherits="RepositoryPattern.UI.CreateProduct" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CreateCategory.aspx.cs" Inherits="RepositoryPattern.UI.CreateCategory" %>
 
 <!DOCTYPE html>
 
@@ -15,15 +15,11 @@
                     <div class="panel panel-default">
                         <div class="panel-body">
                             <div class="form-group">
-                                <label>Ürün Adı:</label>
-                                <asp:TextBox ID="txtProductName" runat="server"></asp:TextBox>
-                                <label>Ürün Fiyatı:</label>
-                                <asp:TextBox ID="txtUnitPrice" runat="server"></asp:TextBox>
-                                <br />
-                                <label>Stok Miktarı:</label>
-                                <asp:TextBox ID="txtUnitsInStock" runat="server"></asp:TextBox>
                                 <label>Kategori Adı:</label>
                                 <asp:TextBox ID="txtCategoryName" runat="server"></asp:TextBox>
+                                <label>Aciklama</label>
+                                <asp:TextBox ID="txtDescription" runat="server"></asp:TextBox>
+                                <br />
                                 <asp:Button ID="btnEkle" runat="server" CssClass="btn btn-success form-control" Text="Ekle" OnClick="btnEkle_Click" />
                                 <asp:Button ID="btnKategorilereGeriDon" runat="server" CssClass="btn btn-info form-control" Text="Kategori Listesine Geri Dön" OnClick="btnKategorilereGeriDon_Click" />
                             </div>

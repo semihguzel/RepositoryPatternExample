@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CreateProduct.aspx.cs" Inherits="RepositoryPattern.UI.CreateProduct" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UpdateProduct.aspx.cs" Inherits="RepositoryPattern.UI.UpdateProduct" %>
 
 <!DOCTYPE html>
 
@@ -6,6 +6,7 @@
 <head runat="server">
     <title></title>
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
+
 </head>
 <body>
     <form id="form1" runat="server">
@@ -24,8 +25,8 @@
                                 <asp:TextBox ID="txtUnitsInStock" runat="server"></asp:TextBox>
                                 <label>Kategori Adı:</label>
                                 <asp:TextBox ID="txtCategoryName" runat="server"></asp:TextBox>
-                                <asp:Button ID="btnEkle" runat="server" CssClass="btn btn-success form-control" Text="Ekle" OnClick="btnEkle_Click" />
-                                <asp:Button ID="btnKategorilereGeriDon" runat="server" CssClass="btn btn-info form-control" Text="Kategori Listesine Geri Dön" OnClick="btnKategorilereGeriDon_Click" />
+                                <asp:Button ID="btnKaydet" runat="server" CssClass="btn btn-warning form-control" Text="Guncelle" OnClick="btnKaydet_Click" />
+                                <asp:Button ID="btnKategorilereGeriDon" runat="server" CssClass="btn btn-primary form-control" Text="Kategori Listesine Geri Dön" OnClick="btnKategorilereGeriDon_Click" />
                             </div>
                         </div>
                     </div>

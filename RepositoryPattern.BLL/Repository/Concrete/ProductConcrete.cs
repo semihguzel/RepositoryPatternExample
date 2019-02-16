@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace RepositoryPattern.BLL.Repository.Concrete
 {
-    public class ProductConcrete
+    public class ProductConcrete : IProduct
     {
         public readonly IRepository<Product> _productRepository;
         public readonly IUnitOfWork _productUnitOfWork;
